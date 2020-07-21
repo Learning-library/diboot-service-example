@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.1.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>cn.org.jetbrains</groupId>
+    <artifactId>diboot-service-example</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>diboot-service-example</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <diboot.version>2.1.1</diboot.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- diboot-core内核 -->
+        <dependency>
+            <groupId>com.diboot</groupId>
+            <artifactId>diboot-core</artifactId>
+            <version>${diboot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.diboot</groupId>
+            <artifactId>diboot-core-spring-boot-starter</artifactId>
+            <version>${diboot.version}</version>
+        </dependency>
+        <!-- diboot-iam 身份与访问控制组件 -->
+        <dependency>
+            <groupId>com.diboot</groupId>
+            <artifactId>diboot-iam-base-spring-boot-starter</artifactId>
+            <version>${diboot.version}</version>
+        </dependency>
+        <!-- diboot-file文件处理组件 -->
+        <dependency>
+            <groupId>com.diboot</groupId>
+            <artifactId>diboot-file-spring-boot-starter</artifactId>
+            <version>${diboot.version}</version>
+        </dependency>
+        <!-- 依赖diboot-devtools -->
+        <dependency>
+            <groupId>com.diboot</groupId>
+            <artifactId>diboot-devtools-spring-boot-starter</artifactId>
+            <version>2.1.1</version>
+            <scope>provided</scope><!-- 只在开发过程依赖，打war包时剔除 -->
+        </dependency>
+        <dependency>
+            <groupId>com.github.whvcse</groupId>
+            <artifactId>easy-captcha</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+
+        <!--        文档-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>1.9.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.diboot</groupId>
+                    <artifactId>diboot-devtools-spring-boot-starter</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
